@@ -115,8 +115,34 @@ export default async function ContactPage() {
         </Container>
       </section>
 
+      {/* Download the app */}
+      <section className="bg-white pt-16 sm:pt-20" aria-label="Get the app">
+        <Container>
+          <div className="flex flex-col items-center gap-5 rounded-[2rem] bg-plum-800 p-8 text-center sm:flex-row sm:text-left">
+            <span aria-hidden="true" className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/15 font-display text-2xl font-bold text-white">
+              E
+            </span>
+            <div className="flex-1">
+              <h2 className="font-display text-xl font-bold text-white">
+                Get the Euna&apos;s Bakes app
+              </h2>
+              <p className="mt-1 text-sm text-white/70">
+                Install our Android app for an app-like experience that opens straight to the menu.
+              </p>
+            </div>
+            <a
+              href="/downloads/eunas-bakes.apk"
+              download
+              className="inline-flex min-h-[52px] shrink-0 items-center justify-center rounded-full bg-blush-400 px-8 text-sm font-bold text-plum-900 transition-opacity hover:opacity-90"
+            >
+              Download for Android
+            </a>
+          </div>
+        </Container>
+      </section>
+
       {/* Business information */}
-      <section className="bg-white py-16 sm:py-20" aria-label="Business information">
+      <section className="bg-white pt-12 pb-16 sm:pt-14 sm:pb-20" aria-label="Business information">
         <SectionHeading
           eyebrow="Good To Know"
           title="Business information"

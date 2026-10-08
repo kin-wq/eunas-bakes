@@ -65,6 +65,13 @@ export async function Footer() {
             <br />
             {content.business.hoursPlaceholder}
           </p>
+          <a
+            href="/downloads/eunas-bakes.apk"
+            download
+            className="mt-4 inline-block text-xs font-semibold text-white/70 underline underline-offset-2 hover:text-white"
+          >
+            Download Android app →
+          </a>
         </div>
       </div>
 
