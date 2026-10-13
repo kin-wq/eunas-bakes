@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AppSplash } from "@/components/layout/AppSplash";
-import { InstallBanner } from "@/components/layout/InstallBanner";
+import { InstallModal } from "@/components/layout/InstallModal";
 import { FloatingWhatsAppButton } from "@/components/shared/FloatingWhatsAppButton";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { getSiteContent } from "@/lib/content";
@@ -65,7 +65,7 @@ export default async function SiteLayout({
     <>
       <script dangerouslySetInnerHTML={{ __html: standaloneScript }} />
       <AppSplash />
-      <InstallBanner />
+      <InstallModal />
       <Header
         brandName={content.brand.name}
         whatsappNumber={content.whatsapp.internationalNumber}
