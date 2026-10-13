@@ -28,7 +28,7 @@ export async function Hero() {
             cakes — baked to order for birthdays, weddings and sweet everyday moments.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-            <WhatsAppButton label="Order on WhatsApp" showNumber number={content.whatsapp.displayNumber} internationalNumber={content.whatsapp.internationalNumber} />
+            <WhatsAppButton internationalNumber={content.whatsapp.internationalNumber} />
             <Button href="/menu" variant="secondary">
               Browse the Menu
             </Button>

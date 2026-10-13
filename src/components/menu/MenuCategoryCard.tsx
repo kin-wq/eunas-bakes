@@ -19,7 +19,7 @@ export function MenuCategoryCard({
   brandName?: string;
   whatsappNumber?: string;
 }) {
-  const enquiryMessage = `Hello ${brandName}! I would like to enquire about your ${category.name}.`;
+  const enquiryMessage = `Hello ${siteConfig.businessName}! I would like to enquire about your ${category.name}.`;
   const lowest = category.sizes.reduce((a, b) => (a.price <= b.price ? a : b));
 
   return (
@@ -78,7 +78,7 @@ export function MenuCategoryCard({
                 </p>
                 <a
                   href={getWhatsAppLink(
-                    `Hello ${brandName}! I would like to enquire about ${category.name} — ${size.label} (${formatPrice(size.price, size.from)}).`,
+                    `Hello ${siteConfig.businessName}! I would like to enquire about ${category.name} — ${size.label} (${formatPrice(size.price, size.from)}).`,
                     whatsappNumber
                   )}
                   target="_blank"

@@ -6,6 +6,7 @@ import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { CakeCategories } from "@/components/home/CakeCategories";
 import { OrderCta } from "@/components/home/OrderCta";
 import { GalleryPreview, Testimonials } from "@/components/home/SocialProof";
+import { ReviewsSection } from "@/components/reviews/ReviewsSection";
 import { WhatsAppCta } from "@/components/home/WhatsAppCta";
 import { getSiteContent } from "@/lib/content";
 
@@ -22,6 +23,7 @@ export default async function Home() {
       <OrderCta />
       <Testimonials />
       <GalleryPreview />
+      <ReviewsSection />
       <WhatsAppCta />
     </>
   );

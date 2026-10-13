@@ -6,6 +6,7 @@ import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { getSiteContent } from "@/lib/content";
 import { canonicalMeta } from "@/lib/seo";
 import { getWhatsAppLink } from "@/lib/whatsapp";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -43,7 +44,6 @@ export default async function ContactPage() {
           </p>
           <div className="mt-7 flex justify-center">
             <WhatsAppButton
-              label={`WhatsApp ${content.whatsapp.displayNumber}`}
               internationalNumber={content.whatsapp.internationalNumber}
               className="px-8 text-base"
             />
@@ -70,7 +70,7 @@ export default async function ContactPage() {
             </span>
             <h2 className="mt-4 font-bold text-plum-800">WhatsApp</h2>
             <p className="mt-1 text-sm font-semibold text-[#178a45]">
-              {content.whatsapp.displayNumber}
+              {siteConfig.businessName}
             </p>
             <p className="mt-1 text-xs text-plum-900/55">
               Orders, enquiries &amp; confirmations — fastest response.

@@ -147,21 +147,21 @@ export function OrderSummary({
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Send your order to Euna's Bakes on WhatsApp"
+            aria-label="Send your order to Euna Bakes on WhatsApp"
             className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-full bg-[#1fa855] px-7 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#178a45]"
           >
             <WhatsAppIcon />
-            Order via WhatsApp
+            WhatsApp Euna Bakes
           </a>
         ) : (
           <button
             type="button"
             onClick={onBlocked}
-            aria-label="Complete your order details to order via WhatsApp"
+            aria-label="Complete your order details to order on WhatsApp"
             className="mt-4 inline-flex min-h-[52px] w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#1fa855] px-7 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#178a45]"
           >
             <WhatsAppIcon />
-            Order via WhatsApp
+            WhatsApp Euna Bakes
           </button>
         )}
         <p className="mt-3 text-center text-xs leading-relaxed text-white/60">

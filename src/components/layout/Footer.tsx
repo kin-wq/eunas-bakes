@@ -58,7 +58,7 @@ export async function Footer() {
             rel="noopener noreferrer"
             className="mt-3 inline-flex min-h-[48px] items-center gap-2 rounded-full bg-[#1fa855] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#178a45]"
           >
-            WhatsApp · {content.whatsapp.displayNumber}
+            WhatsApp {siteConfig.businessName}
           </a>
           <p className="mt-4 text-xs leading-relaxed text-white/60">
             {content.business.locationPlaceholder}

@@ -53,7 +53,7 @@ export type Estimate =
   | { calculable: false };
 
 export const FINAL_PRICE_NOTE =
-  "Final price will be confirmed by Euna's Bakes.";
+  "Final price will be confirmed by Euna Bakes.";
 
 /** Format USD, trimming unnecessary decimals (e.g. $47.50, never $47.5). */
 export function formatUSD(value: number): string {

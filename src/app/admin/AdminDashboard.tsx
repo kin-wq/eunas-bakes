@@ -13,6 +13,8 @@ import {
   WhatsAppEditor,
 } from "@/app/admin/editors";
 import type { SiteContent } from "@/lib/content";
+import type { Review } from "@/lib/reviews";
+import { ReviewsModeration } from "@/app/admin/ReviewsModeration";
 import { cn } from "@/lib/utils";
 
 const tabs = [
@@ -20,12 +22,19 @@ const tabs = [
   { id: "featured", label: "Featured" },
   { id: "gallery", label: "Gallery" },
   { id: "testimonials", label: "Testimonials" },
+  { id: "reviews", label: "Reviews" },
   { id: "business", label: "Business Info" },
   { id: "brand", label: "Brand & WhatsApp" },
   { id: "promotions", label: "Promotions" },
 ] as const;
 
-export function AdminDashboard({ initial }: { initial: SiteContent }) {
+export function AdminDashboard({
+  initial,
+  initialReviews,
+}: {
+  initial: SiteContent;
+  initialReviews: Review[];
+}) {
   const [tab, setTab] = useState<(typeof tabs)[number]["id"]>("products");
 
   return (
@@ -79,6 +88,7 @@ export function AdminDashboard({ initial }: { initial: SiteContent }) {
         {tab === "testimonials" && (
           <TestimonialsEditor initial={initial.testimonials} />
         )}
+        {tab === "reviews" && <ReviewsModeration initial={initialReviews} />}
         {tab === "business" && <BusinessEditor initial={initial.business} />}
         {tab === "brand" && (
           <div className="space-y-10">

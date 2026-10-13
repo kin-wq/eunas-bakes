@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { AppSplash } from "@/components/layout/AppSplash";
 import { FloatingWhatsAppButton } from "@/components/shared/FloatingWhatsAppButton";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { getSiteContent } from "@/lib/content";
 import { canonicalMeta } from "@/lib/seo";
+
+/**
+ * Marks installed-app sessions (Android TWA / PWA / iOS home screen) before
+ * first paint so the branded splash only renders there — never in browsers.
+ */
+const standaloneScript = `try{if(window.matchMedia("(display-mode: standalone)").matches||(navigator.standalone===true)){document.documentElement.classList.add("app-standalone");}}catch(e){}`;
 
 /**
  * Customer-facing site chrome. Admin (/admin) and API routes live outside
@@ -55,9 +62,10 @@ export default async function SiteLayout({
   const content = await getSiteContent();
   return (
     <>
+      <script dangerouslySetInnerHTML={{ __html: standaloneScript }} />
+      <AppSplash />
       <Header
         brandName={content.brand.name}
-        whatsappDisplay={content.whatsapp.displayNumber}
         whatsappNumber={content.whatsapp.internationalNumber}
         depositNotice={content.business.depositNotice}
       />
@@ -67,8 +75,6 @@ export default async function SiteLayout({
       <Footer />
       <MobileBottomNav whatsappNumber={content.whatsapp.internationalNumber} />
       <FloatingWhatsAppButton
-        brandName={content.brand.name}
-        whatsappDisplay={content.whatsapp.displayNumber}
         whatsappNumber={content.whatsapp.internationalNumber}
       />
     </>

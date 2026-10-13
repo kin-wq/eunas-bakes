@@ -427,3 +427,23 @@ export async function saveSectionAction(
   updateTag("site-content");
   return { ok: true };
 }
+
+/* ------------------------------ reviews ------------------------------- */
+
+export type ReviewModerateState = { ok: boolean; error?: string };
+
+/** Admin-only: move a submitted review between pending/approved/rejected. */
+export async function setReviewStatusAction(
+  id: string,
+  status: "pending" | "approved" | "rejected"
+): Promise<ReviewModerateState> {
+  if (!(await currentSessionValid()))
+    return { ok: false, error: "Not signed in." };
+  if (typeof id !== "string" || !/^[0-9a-f-]{36}$/i.test(id))
+    return { ok: false, error: "Invalid review id." };
+  if (status !== "pending" && status !== "approved" && status !== "rejected")
+    return { ok: false, error: "Invalid status." };
+
+  const { setReviewStatus } = await import("@/lib/reviews");
+  return setReviewStatus(id, status);
+}

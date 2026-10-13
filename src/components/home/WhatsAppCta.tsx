@@ -20,7 +20,6 @@ export async function WhatsAppCta() {
         </p>
         <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <WhatsAppButton
-            label={`WhatsApp ${content.whatsapp.displayNumber}`}
             internationalNumber={content.whatsapp.internationalNumber}
             className="px-8 py-1 text-base"
           />

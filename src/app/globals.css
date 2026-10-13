@@ -69,3 +69,52 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* ------------------------- branded launch splash ------------------------- *
+ * Full-screen Euna's Bakes splash shown when the site runs as an installed
+ * app (Android TWA / PWA / iOS home screen). An inline script adds
+ * .app-standalone to <html> before first paint, so normal browser visits
+ * never see or wait for the splash. Pure CSS timing: ~2.7s hold + ~0.6s
+ * fade = ~3.3s total, then visibility:hidden removes it (and hit-testing)
+ * while the app underneath is already fully initialized.               */
+.app-splash {
+  display: none;
+}
+
+.app-standalone .app-splash {
+  display: flex;
+  animation: splash-hold 3.3s ease-out both;
+}
+
+@keyframes splash-hold {
+  0%,
+  81.8% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.splash-content {
+  animation: splash-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes splash-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-content {
+    animation: none;
+  }
+}

@@ -10,12 +10,10 @@ import { WhatsAppIcon } from "@/components/ui/Button";
 
 export function Header({
   brandName = siteConfig.brand.name,
-  whatsappDisplay = siteConfig.whatsapp.displayNumber,
   whatsappNumber = siteConfig.whatsapp.internationalNumber,
   depositNotice = siteConfig.business.depositNotice,
 }: {
   brandName?: string;
-  whatsappDisplay?: string;
   whatsappNumber?: string;
   depositNotice?: string;
 }) {
@@ -107,7 +105,7 @@ export function Header({
               aria-label="Chat on WhatsApp"
             >
               <WhatsAppIcon className="h-4 w-4" />
-              {whatsappDisplay}
+              WhatsApp {siteConfig.businessName}
             </a>
           </nav>
 
@@ -181,7 +179,7 @@ export function Header({
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#1fa855] px-5 py-4 text-[15px] font-semibold text-white"
             >
               <WhatsAppIcon />
-              WhatsApp · {whatsappDisplay}
+              WhatsApp {siteConfig.businessName}
             </a>
             <p className="px-5 pt-3 pb-2 text-center text-xs text-plum-900/50">
               {depositNotice}

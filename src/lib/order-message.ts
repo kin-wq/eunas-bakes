@@ -51,7 +51,7 @@ export function buildOrderMessage(
 ): string {
   const estimate = calculateEstimate(order, categories);
   const lines: string[] = [
-    "Hello Euna's Bakes 👋",
+    "Hello Euna Bakes 👋",
     "",
     "I would like to place an order.",
     "",

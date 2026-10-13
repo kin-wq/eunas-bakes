@@ -1,22 +1,19 @@
 import { Button, WhatsAppIcon } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/lib/whatsapp";
+import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 export function WhatsAppButton({
   message,
-  label = "Order via WhatsApp",
+  label = `WhatsApp ${siteConfig.businessName}`,
   variant = "whatsapp",
   className,
-  showNumber = false,
-  number,
   internationalNumber,
 }: {
   message?: string;
   label?: string;
   variant?: "whatsapp" | "primary" | "secondary" | "outline-light";
   className?: string;
-  showNumber?: boolean;
-  number?: string;
   /** Live admin-edited number; defaults to the central static config. */
   internationalNumber?: string;
 }) {
@@ -26,13 +23,10 @@ export function WhatsAppButton({
       external
       variant={variant}
       className={cn(className)}
-      ariaLabel={`${label} on WhatsApp`}
+      ariaLabel={label}
     >
       <WhatsAppIcon />
-      <span>
-        {label}
-        {showNumber && number ? ` · ${number}` : null}
-      </span>
+      <span>{label}</span>
     </Button>
   );
 }

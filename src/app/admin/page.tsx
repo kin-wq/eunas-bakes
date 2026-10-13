@@ -2,6 +2,7 @@ import { connection } from "next/server";
 import { AdminDashboard } from "@/app/admin/AdminDashboard";
 import { requireAdmin } from "@/app/admin/actions";
 import { getSiteContent } from "@/lib/content";
+import { readReviews } from "@/lib/reviews";
 
 /**
  * Admin dashboard. Always rendered at request time (never prerendered) and
@@ -12,5 +13,6 @@ export default async function AdminPage() {
   await connection();
   await requireAdmin();
   const content = await getSiteContent();
-  return <AdminDashboard initial={content} />;
+  const reviews = await readReviews();
+  return <AdminDashboard initial={content} initialReviews={reviews} />;
 }
